@@ -5,7 +5,8 @@ import seaborn as sns
 
 sns.set_theme()
 sns.set_style('darkgrid')
-df = pd.read_csv('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\cp_data.csv',skipinitialspace=True)
+df = pd.read_csv('.\Measurement_Data\\twoD\cp_data.csv',skipinitialspace=True)
+#df = pd.read_csv('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\cp_data.csv',skipinitialspace=True)
 df = df.T
 print(df)
 print(df[1])
