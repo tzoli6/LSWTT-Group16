@@ -12,5 +12,3 @@ sns.scatterplot(data=df, x='Alpha' ,y='Cl')
 sns.relplot(data=df, x='Alpha' ,y='Cl',kind='line')
 
 plt.show()
-
-#test
