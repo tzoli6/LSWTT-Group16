@@ -13,6 +13,6 @@ df = df[['Alpha','Cl']]
 plt.plot(df['Alpha'], df['Cl'], color='grey',linewidth='1')
 f=sns.scatterplot(data=df, x=df['Alpha'], y=df['Cl'], marker ='X', color='seagreen')
 f.set(xlabel='Alpha [degrees]', ylabel='Cl [-]')
-plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(['Cl-Alpha'])+'.svg',dpi=1200)
+#plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(['Cl-Alpha'])+'.svg',dpi=1200)
     #plt.savefig('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',format='svg', dpi=1200)
-plt.clf()
+#plt.clf()
