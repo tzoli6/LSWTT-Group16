@@ -17,6 +17,6 @@ for i in range(1,43):
     f=sns.scatterplot(data=df, x=df[0]/100, y=df[i], marker ='X', color='seagreen')
     f.set(xlabel='x/c [-]', ylabel='Cp [-]')
     f.invert_yaxis()
-    plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',dpi=1200)
+    #plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',dpi=1200)
     #plt.savefig('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',format='svg', dpi=1200)
-    plt.clf()
+    #plt.clf()

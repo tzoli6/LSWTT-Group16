@@ -10,6 +10,7 @@ df = pd.read_csv('.\Measurement_Data\\twoD\main.csv',skipinitialspace=True)
 df = pd.DataFrame(df)
 print(df)
 df = df[['Alpha','Cl']]
+print(df)
 plt.plot(df['Alpha'], df['Cl'], color='grey',linewidth='1')
 f=sns.scatterplot(data=df, x=df['Alpha'], y=df['Cl'], marker ='X', color='seagreen')
 f.set(xlabel='Alpha [degrees]', ylabel='Cl [-]')
