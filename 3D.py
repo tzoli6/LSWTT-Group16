@@ -5,6 +5,9 @@ import seaborn as sns
 
 sns.set_theme()
 
+df = pd.read_csv('.\Measurement_Data\\3D\corr_test.csv',skipinitialspace=True)
+df = pd.DataFrame(df)
+
 #There were some datapoints which are redundant. These are the following:
 #Run-nr
 #29
@@ -12,10 +15,11 @@ sns.set_theme()
 #33
 #34
 
-###CL-Alpha###
+labels=[29-1,32-1,33-1,34-1]
+df = df.drop(labels)
+print(df)
 
-df = pd.read_csv('.\Measurement_Data\\3D\corr_test.csv',skipinitialspace=True)
-df = pd.DataFrame(df)
+###CL-Alpha###
 df_1 = df[['Alpha','CL']]
 print(df_1)
 #plot
