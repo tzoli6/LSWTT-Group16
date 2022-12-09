@@ -6,7 +6,11 @@ import seaborn as sns
 sns.set_theme()
 
 #There were some datapoints which are redundant. These are the following:
-#
+#Run-nr
+#29
+#32
+#33
+#34
 
 ###CL-Alpha###
 
@@ -47,7 +51,7 @@ df_4 = df[['Alpha','Cm_pitch']]
 print(df_4)
 #plot
 plt.plot(df_4['Alpha'], df_4['Cm_pitch'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_4, x=df_4['Alpha'], y=df_4['CL'], marker ='X', color='seagreen')
+f=sns.scatterplot(data=df_4, x=df_4['Alpha'], y=df_4['Cm_pitch'], marker ='X', color='seagreen')
 f.set(xlabel='Alpha [degrees]', ylabel='Cm [-]')
 plt.show()
 
