@@ -28,7 +28,7 @@ df_stall = df.drop(np.arange(0,30))
 df_stall = df_stall.drop(np.arange(34,47))
 
 #datapoints in hysteresis (19.0H - 13.0H):
-df_hysteresis = df.drop(np.arange(0,34))
+df_hyst = df.drop(np.arange(0,34))
 
 ###CL-Alpha###
 df_1 = df[['Alpha','CL']]
@@ -45,6 +45,11 @@ f=sns.scatterplot(data=df_1_stall, x=df_1['Alpha'], y=df_1_stall['CL'], marker =
 f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
 plt.show()
 #plot hysteresis
+df_1_hyst = df_hyst[['Alpha','CL']]
+plt.plot(df_1_hyst['Alpha'], df_1_hyst['CL'], color='grey',linewidth='1')
+f=sns.scatterplot(data=df_1_hyst, x=df_1['Alpha'], y=df_1_hyst['CL'], marker ='X', color='seagreen')
+f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
+plt.show()
 
 ###CL-CD###
 
