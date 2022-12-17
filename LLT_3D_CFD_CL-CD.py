@@ -7,5 +7,11 @@ sns.set_theme()
 
 df = pd.read_csv(".\CFD\\3D\\3D_windtunnel_model_T1-49_0_m_s-LLT_V2_(3).csv", skipinitialspace=True)
 
-sns.relplot(data=df, x='CD', y='CL', markers='o')
+f = sns.relplot(data=df, x='CD', y='CL', markers='o')
+data = pd.DataFrame(df)
+data_vector = data[['CD', 'CL']]
+plt.plot(data_vector['CD'], data_vector['CL'], color='grey', linewidth='1')
+f.set(xlabel='CD [-]', ylabel='CL [-]')
 plt.show()
+plt.savefig('.\CFD\\3D\graphs\\'+str(['CL-CD'])+'.svg',dpi=1200)
+plt.clf()
