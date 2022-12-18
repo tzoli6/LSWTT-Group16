@@ -12,6 +12,7 @@ data = pd.DataFrame(df)
 data_vector = data[['alpha', 'CDi']]
 plt.plot(data_vector['alpha'], data_vector['CDi'], color='grey', linewidth='1')
 f.set(xlabel='alpha [degrees]', ylabel='CDi [-]')
-plt.show()
+
 plt.savefig('.\CFD\\3D\graphs\\'+str(['VLM_induced_drag-alpha'])+'.svg',dpi=1200)
+plt.show()
 plt.clf()
