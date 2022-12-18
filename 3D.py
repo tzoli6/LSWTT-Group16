@@ -30,6 +30,25 @@ df_stall = df_stall.drop(np.arange(34,47))
 #datapoints in hysteresis (19.0H - 13.0H):
 df_hyst = df.drop(np.arange(0,34))
 
+#datapoints in normal + stall (-3.0 - 19.5):
+df_ns = df.drop(np.arange(34,47))
+
+def plotter(x_axis, y_axis, unit_x, unit_y, dataset):
+    if dataset == 1:
+        df_1 = df[[x_axis, y_axis]]
+    if dataset == 2:
+        df_1 = df_stall[[x_axis, y_axis]]
+    if dataset == 3:
+        df_1 = df_hyst[[x_axis, y_axis]]
+    if dataset == 4:
+        df_1 = df_ns[[x_axis, y_axis]]
+    plt.plot(df_1[x_axis], df_1[y_axis], color='grey',linewidth='1')
+    f=sns.scatterplot(data=df_1, x=df_1[x_axis], y=df_1[y_axis], marker ='X', color='seagreen')
+    f.set(xlabel= x_axis + ' [' + unit_x + ']', ylabel= y_axis + ' [' + unit_y + ']')
+    plt.show()
+
+plotter('Alpha', 'CL', 'degrees', '-', 1)
+
 ###CL-Alpha###
 df_1 = df[['Alpha','CL']]
 print(df_1)
