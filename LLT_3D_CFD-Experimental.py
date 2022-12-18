@@ -9,7 +9,7 @@ import numpy as np
 sns.set_theme()
 sns.set_style('darkgrid', {'axes.facecolor':'.9'})
 
-df = pd.read_csv('.\\CFD\\3D\\3D_windtunnel_model_T1-49_0_m_s-LLT_V2_(3).csv', skipinitialspace=True)
+df = pd.read_csv('.\\CFD\\3D\\3D_windtunnel_model_T1-49_0_m_s-LLT_V2(4).csv', skipinitialspace=True)
 
 
 df_data = pd.read_csv('.\Measurement_Data\\3D\corr_test.csv',skipinitialspace=True)
