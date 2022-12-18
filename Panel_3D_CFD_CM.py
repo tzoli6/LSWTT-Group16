@@ -12,7 +12,8 @@ data = pd.DataFrame(df)
 data_vector = data[['alpha', 'Cm']]
 plt.plot(data_vector['alpha'], data_vector['Cm'], color='grey', linewidth='1')
 f.set(xlabel='alpha [-]', ylabel='Cm [-]')
-plt.show()
+
 plt.savefig('.\CFD\\3D\graphs\\'+str(['Panel_Cm-alpha'])+'.svg',dpi=1200)
+plt.show()
 plt.clf()
 

@@ -13,6 +13,6 @@ data_vector = data[['alpha', 'CL']]
 plt.plot(data_vector['alpha'], data_vector['CL'], color='grey', linewidth='1')
 f.set(xlabel='alpha [degrees]', ylabel='CL [-]')
 print(df)
-plt.savefig('.\CFD\\3D\graphs\\VLM_CL-alpha.svg',dpi=1200)
+plt.savefig('.\CFD\\3D\graphs\\' +str(['VLM_CL-alpha'])+'.svg',dpi=1200)
 plt.show()
 plt.clf()

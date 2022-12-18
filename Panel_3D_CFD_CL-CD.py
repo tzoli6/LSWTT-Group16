@@ -12,7 +12,8 @@ data = pd.DataFrame(df)
 data_vector = data[['CD', 'CL']]
 plt.plot(data_vector['CD'], data_vector['CL'], color='grey', linewidth='1')
 f.set(xlabel='CD [-]', ylabel='CL [-]')
-plt.show()
+
 plt.savefig('.\CFD\\3D\graphs\\'+str(['Panel_CL-CD'])+'.svg',dpi=1200)
+plt.show()
 plt.clf()
 
