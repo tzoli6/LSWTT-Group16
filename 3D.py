@@ -47,60 +47,60 @@ def plotter(x_axis, y_axis, unit_x, unit_y, dataset):
     f.set(xlabel= x_axis + ' [' + unit_x + ']', ylabel= y_axis + ' [' + unit_y + ']')
     plt.show()
 
-plotter('Alpha', 'CL', 'degrees', '-', 1)
+plotter('CL', 'CD', '-', '-', 1)
 
-###CL-Alpha###
-df_1 = df[['Alpha','CL']]
-print(df_1)
-#plot all
-plt.plot(df_1['Alpha'], df_1['CL'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_1, x=df_1['Alpha'], y=df_1['CL'], marker ='X', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
-plt.show()
-#plot stall
-df_1_stall = df_stall[['Alpha','CL']]
-plt.plot(df_1_stall['Alpha'], df_1_stall['CL'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_1_stall, x=df_1['Alpha'], y=df_1_stall['CL'], marker ='X', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
-plt.show()
-#plot hysteresis
-df_1_hyst = df_hyst[['Alpha','CL']]
-plt.plot(df_1_hyst['Alpha'], df_1_hyst['CL'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_1_hyst, x=df_1['Alpha'], y=df_1_hyst['CL'], marker ='X', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
-plt.show()
-
-###CL-CD###
-
-df_2 = df[['CD','CL']]
-#print(df_2)
-#plot
-plt.plot(df_2['CD'], df_2['CL'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_2, x=df_2['CD'], y=df_2['CL'], marker ='X', color='seagreen')
-f.set(xlabel='CD [-]', ylabel='CL [-]')
-plt.show()
-
-
-###CD-Alpha###
-
-df_3 = df[['Alpha','CD']]
-#print(df_3)
-#plot
-plt.plot(df_3['Alpha'], df_3['CD'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_3, x=df_3['Alpha'], y=df_3['CD'], marker ='X', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='CD [-]')
-plt.show()
-
-###CM-Alpha###
-
-df_4 = df[['Alpha','Cm_pitch']]
-#print(df_4)
-#plot
-plt.plot(df_4['Alpha'], df_4['Cm_pitch'], color='grey',linewidth='1')
-f=sns.scatterplot(data=df_4, x=df_4['Alpha'], y=df_4['Cm_pitch'], marker ='X', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='Cm [-]')
-plt.show()
-
-#sns.relplot(data=df, x='Alpha' ,y='CL',markers='O')
-#plt.plot(df['Alpha-pr'],df['Cl-press'])
-#plt.show()
+# ###CL-Alpha###
+# df_1 = df[['Alpha','CL']]
+# print(df_1)
+# #plot all
+# plt.plot(df_1['Alpha'], df_1['CL'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_1, x=df_1['Alpha'], y=df_1['CL'], marker ='X', color='seagreen')
+# f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
+# plt.show()
+# #plot stall
+# df_1_stall = df_stall[['Alpha','CL']]
+# plt.plot(df_1_stall['Alpha'], df_1_stall['CL'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_1_stall, x=df_1['Alpha'], y=df_1_stall['CL'], marker ='X', color='seagreen')
+# f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
+# plt.show()
+# #plot hysteresis
+# df_1_hyst = df_hyst[['Alpha','CL']]
+# plt.plot(df_1_hyst['Alpha'], df_1_hyst['CL'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_1_hyst, x=df_1['Alpha'], y=df_1_hyst['CL'], marker ='X', color='seagreen')
+# f.set(xlabel='Alpha [degrees]', ylabel='CL [-]')
+# plt.show()
+#
+# ###CL-CD###
+#
+# df_2 = df[['CD','CL']]
+# #print(df_2)
+# #plot
+# plt.plot(df_2['CD'], df_2['CL'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_2, x=df_2['CD'], y=df_2['CL'], marker ='X', color='seagreen')
+# f.set(xlabel='CD [-]', ylabel='CL [-]')
+# plt.show()
+#
+#
+# ###CD-Alpha###
+#
+# df_3 = df[['Alpha','CD']]
+# #print(df_3)
+# #plot
+# plt.plot(df_3['Alpha'], df_3['CD'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_3, x=df_3['Alpha'], y=df_3['CD'], marker ='X', color='seagreen')
+# f.set(xlabel='Alpha [degrees]', ylabel='CD [-]')
+# plt.show()
+#
+# ###CM-Alpha###
+#
+# df_4 = df[['Alpha','Cm_pitch']]
+# #print(df_4)
+# #plot
+# plt.plot(df_4['Alpha'], df_4['Cm_pitch'], color='grey',linewidth='1')
+# f=sns.scatterplot(data=df_4, x=df_4['Alpha'], y=df_4['Cm_pitch'], marker ='X', color='seagreen')
+# f.set(xlabel='Alpha [degrees]', ylabel='Cm [-]')
+# plt.show()
+#
+# #sns.relplot(data=df, x='Alpha' ,y='CL',markers='O')
+# #plt.plot(df['Alpha-pr'],df['Cl-press'])
+# #plt.show()
