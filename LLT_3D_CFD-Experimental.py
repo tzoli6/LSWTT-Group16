@@ -147,8 +147,9 @@ def save_cfd_plots():
 
 def save_comparison_plots():
     sns.set_palette('Paired')
+
     #CL-alpha
-    g=sns.relplot(df, x='alpha', y='CL', kind='line', linewidth='1',color='grey', aspect=16/11)
+    g=sns.relplot(df_con, x='alpha', y='CL', kind='scatter', linewidth='1',color='grey', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='CL', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
     plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'CL'], color='grey',linewidth='1')
@@ -157,11 +158,13 @@ def save_comparison_plots():
     plt.xticks(np.arange(-10,22.5,2.5))
     plt.savefig('.\CFD\\3D\graphs\CFD-Experimental_CL-alpha.svg',dpi=1200)
     plt.clf()
+
     #CD-alpha
-    g=sns.relplot(df, x='alpha', y='CD', kind='line', linewidth='1',color='grey', aspect=16/11)
+    g=sns.relplot(df_con, x='alpha', y='CD', kind='scatter', style='dataset', hue='dataset', aspect=16/11, legend=False) #linewidth='1',color='grey'
     sns.scatterplot(df_con, x='alpha', y='CD', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
     plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'CD'], color='grey',linewidth='1')
+    plt.plot(df.loc[:,'alpha'], df.loc[:,'CD'], color='grey',linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='CD [-]')
     plt.yticks(np.arange(-0.05,0.35,0.05))
     plt.xticks(np.arange(-10,20,2.5))
@@ -179,8 +182,9 @@ def save_comparison_plots():
     plt.xticks(np.arange(-0.05,0.35,0.05))
     plt.savefig('.\CFD\\3D\graphs\CFD-Experimental_CD-CL.svg',dpi=1200)
     plt.clf()
-#Cm-alpha
-    g=sns.relplot(df, x='alpha', y='Cm', kind='line', linewidth='1',color='grey', aspect=16/11)
+    
+    #Cm-alpha
+    g=sns.relplot(df_con, x='alpha', y='Cm', kind='line', linewidth='1',color='grey', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='Cm', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
     plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'Cm_pitch'], color='grey',linewidth='1')
