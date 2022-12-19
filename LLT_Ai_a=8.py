@@ -16,6 +16,6 @@ plt.plot(data_vector['y-span'], data_vector['Ai'], color='grey', linewidth='1')
 f.set(xlabel='y-span [m]', ylabel='Ai [degrees]')
 
 print(df)
-plt.savefig('.\CFD\\3D\graphs\\'+str(['induced_angle-alpha=8'])+'.svg',dpi=1200)
+plt.savefig('.\CFD\\3D\graphs\induced_angle-alpha=8.svg',dpi=1200)
 plt.show()
 plt.clf()
