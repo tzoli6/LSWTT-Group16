@@ -94,7 +94,7 @@ plt.show()
 #sns.relplot(data=df, x='Alpha' ,y='CL',markers='O')
 #plt.plot(df['Alpha-pr'],df['Cl-press'])
 #plt.show()
-df_con= pd.concat([df.assign(dataset='CFD'), df_data.assign(dataset='Measurement')])
+df_con= pd.concat([df.assign(dataset='Simulation'), df_data.assign(dataset='Measurement')])
 print(df)
 sns.set(rc={'figure.figsize':(6,16)})
 
@@ -149,10 +149,11 @@ def save_comparison_plots():
     sns.set_palette('Paired')
 
     #CL-alpha
-    g=sns.relplot(df_con, x='alpha', y='CL', kind='scatter', linewidth='1',color='grey', aspect=16/11, legend=False)
+    g=sns.relplot(df_con, x='alpha', y='CL', kind='scatter', style='dataset',hue= 'dataset', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='CL', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
     plt.plot(df_data.loc[:,'alpha'], df_data.loc[:,'CL'], color='grey',linewidth='1')
+    plt.plot(df.loc[:, 'alpha'], df.loc[:, 'CL'], color='grey', linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='Cl [-]')
     plt.yticks(np.arange(-1,1.5,0.25))
     plt.xticks(np.arange(-10,22.5,2.5))
@@ -187,10 +188,11 @@ def save_comparison_plots():
     plt.clf()
     
     #Cm-alpha
-    g=sns.relplot(df_con, x='alpha', y='Cm', kind='line', linewidth='1',color='grey', aspect=16/11, legend=False)
+    g=sns.relplot(df_con, x='alpha', y='Cm', kind='scatter', style='dataset',hue='dataset', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='Cm', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
     plt.plot(df_data.loc[:,'alpha'], df_data.loc[:,'Cm'], color='grey',linewidth='1')
+    plt.plot(df.loc[:, 'alpha'], df.loc[:, 'Cm'], color='grey', linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='Cm [-]')
     plt.yticks(np.arange(-0.3,0.06,0.01))
     plt.xticks(np.arange(-10,22.5,2.5))
