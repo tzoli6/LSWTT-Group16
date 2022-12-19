@@ -4,7 +4,7 @@ import seaborn as sns
 import numpy as np
 
 
-df = pd.read_csv('.\Measurement_Data\\3D_heat\\-1 deg\Record_2022-11-29_09-31-06.csv',delimiter=';', skipinitialspace=True)
+df = pd.read_csv('.\Measurement_Data\\3D_heat\\-1 deg\Record_2022-11-29_10-32-11.csv',delimiter=';', skipinitialspace=True)
 df = df.iloc[: , :-1]
 ma = df.values.max()
 mi = df.values.min()
