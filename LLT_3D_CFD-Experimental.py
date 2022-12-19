@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-import seaborn.objects as so
+
 import pandas as pd
 import numpy as np
 
@@ -12,7 +12,7 @@ sns.set_style('darkgrid', {'axes.facecolor':'.9'})
 df = pd.read_csv('.\\CFD\\3D\\3D_windtunnel_model_T1-49_0_m_s-LLT_V2(4).csv', skipinitialspace=True)
 
 
-df_data = pd.read_csv('.\Measurement_Data\\3D\corr_test.csv',skipinitialspace=True)
+df_data = pd.read_csv('.\Measurement_Data\\3D\corr_test_V2.csv',skipinitialspace=True)
 
 df_data = pd.DataFrame(df_data)
 
@@ -152,22 +152,25 @@ def save_comparison_plots():
     g=sns.relplot(df_con, x='alpha', y='CL', kind='scatter', linewidth='1',color='grey', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='CL', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
-    plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'CL'], color='grey',linewidth='1')
+    plt.plot(df_data.loc[:,'alpha'], df_data.loc[:,'CL'], color='grey',linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='Cl [-]')
     plt.yticks(np.arange(-1,1.5,0.25))
     plt.xticks(np.arange(-10,22.5,2.5))
+    print('1')
     plt.savefig('.\CFD\\3D\graphs\CFD-Experimental_CL-alpha.svg',dpi=1200)
+    print('2')
     plt.clf()
 
     #CD-alpha
     g=sns.relplot(df_con, x='alpha', y='CD', kind='scatter', style='dataset', hue='dataset', aspect=16/11, legend=False) #linewidth='1',color='grey'
     sns.scatterplot(df_con, x='alpha', y='CD', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
-    plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'CD'], color='grey',linewidth='1')
+    plt.plot(df_data.loc[:,'alpha'], df_data.loc[:,'CD'], color='grey',linewidth='1')
     plt.plot(df.loc[:,'alpha'], df.loc[:,'CD'], color='grey',linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='CD [-]')
     plt.yticks(np.arange(-0.05,0.35,0.05))
     plt.xticks(np.arange(-10,20,2.5))
+    print(3)
     plt.savefig('.\CFD\\3D\graphs\CFD-Experimental_CD-alpha.svg',dpi=1200)
     plt.clf()
 
@@ -187,7 +190,7 @@ def save_comparison_plots():
     g=sns.relplot(df_con, x='alpha', y='Cm', kind='line', linewidth='1',color='grey', aspect=16/11, legend=False)
     sns.scatterplot(df_con, x='alpha', y='Cm', style='dataset', hue='dataset')
     g.axes.flat[0].get_legend().set_title('')
-    plt.plot(df_data.loc[:,'Alpha'], df_data.loc[:,'Cm_pitch'], color='grey',linewidth='1')
+    plt.plot(df_data.loc[:,'alpha'], df_data.loc[:,'Cm'], color='grey',linewidth='1')
     g.set(xlabel='\u03B1 [\u00B0]', ylabel='Cm [-]')
     plt.yticks(np.arange(-0.3,0.06,0.01))
     plt.xticks(np.arange(-10,22.5,2.5))
