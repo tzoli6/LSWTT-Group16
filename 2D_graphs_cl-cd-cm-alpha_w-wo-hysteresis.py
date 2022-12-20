@@ -13,8 +13,8 @@ print(df)
 df = df[['Alpha','Cl','Cm','Cd']]
 da = df[:33]
 print(df)
-plt.plot(df['Alpha'], df['Cl'], color='red',linewidth='1', label = 'Cl')
-plt.plot(df['Alpha'], df['Cm'], color='green',linewidth='1', label = 'Cm')
+plt.plot(df['Alpha'], df['Cl'],linewidth='1', label = 'Cl', color='grey')
+plt.plot(df['Alpha'], df['Cm'], linewidth='1', label = 'Cm', color='grey')
 plt.legend
 f=sns.scatterplot(data=df, x=df['Alpha'], y=df['Cl'], marker ='X', color='red')
 f=sns.scatterplot(data=df, x=df['Alpha'], y=df['Cm'], marker ='s', color='seagreen')
@@ -23,8 +23,8 @@ plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(['ClCm-Alpha'])+'.svg',dpi=1
     #plt.savefig('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',format='svg', dpi=1200)
 plt.clf()
 
-plt.plot(da['Alpha'], da['Cl'], color='red',linewidth='1',label = 'Cl')
-plt.plot(da['Alpha'], da['Cm'], color='green',linewidth='1',label = 'Cm')
+plt.plot(da['Alpha'], da['Cl'], linewidth='1',label = 'Cl', color='grey')
+plt.plot(da['Alpha'], da['Cm'], linewidth='1',label = 'Cm', color='grey')
 plt.legend
 q=sns.scatterplot(data=da, x=da['Alpha'], y=da['Cl'], marker ='X', color='red')
 f=sns.scatterplot(data=da, x=da['Alpha'], y=da['Cm'], marker ='s', color='seagreen')

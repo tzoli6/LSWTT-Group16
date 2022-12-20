@@ -16,7 +16,7 @@ df = df.astype(float)
 df_data = pd.read_csv('.\Measurement_Data\\twoD\main.csv',skipinitialspace=True)
 
 df_con= pd.concat([df.assign(dataset='CFD'), df_data.assign(dataset='Measurement')])
-print(df)
+#print(df)
 sns.set(rc={'figure.figsize':(6,16)})
 
 #sns.relplot(df, x='alpha', y='CL', style='dataset', kind='line', color='grey', legend=False)
@@ -102,9 +102,25 @@ def save_comperison_plots():
     plt.savefig('.\CFD\\2D\Graphs\CFD_M_Cm-alpha.svg',dpi=1200)
     plt.clf()
 
+def save_CFD_Cp_plots():
+    df = pd.read_csv('.\\CFD\\2D\\Cp\\3.txt', delimiter=' ', skipinitialspace=True)
+    print(df)
+    df = df.astype(float)
+    df = df[df.index % 3 ==0]
+    f=sns.relplot(df, x='x', y='Cpi', kind='scatter', aspect=16/11)
+    f=sns.scatterplot(df, x='x', y='Cpi', markers='x', color='seagreen')
+    plt.plot(df.loc[:,'x'], df.loc[:,'Cpi'], color = 'grey', linewidth=1)
+    f.set(xlabel='x/c [-]', ylabel='Cp [-]')
+    f.invert_yaxis()
+    plt.yticks(np.arange(-1.2,1.25,0.25))
+    plt.xticks(np.arange(0,1.2,0.1))
+    plt.savefig('.\CFD\\2D\Graphs\Cp_3.svg',dpi=1200)
+    plt.clf()
+
 def main():
     #save_cfd_plots()
-    save_comperison_plots()
+    #save_comperison_plots()
+    save_CFD_Cp_plots()
 
 
 
