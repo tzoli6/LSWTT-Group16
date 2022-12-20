@@ -8,9 +8,10 @@ import glob
 
 dflist = []
 
-for i in np.arange(-3, 20, 1):
+for i in np.arange(14, 20, 1):
     i = str(i)
-    files = glob.glob('.\Measurement_Data\\3D_heat\\'+i+' deg\Record*')
+    ########################## _H or not
+    files = glob.glob('.\Measurement_Data\\3D_heat\\'+i+' deg_H\Record*')
 
     #puts ALL images into a list from ONE folder
     for j in range(0, len(files)):
@@ -34,12 +35,17 @@ for i in np.arange(-3, 20, 1):
     df_avg = df_avg.apply(lambda x: np.tanh(5*(x-0.73)))
     a = sns.set_palette(sns.color_palette(['#000000','#ffffff'], as_cmap=True))
     a = sns.color_palette('Greys_r', 1000)
-    label = str(i) + ' Deg'
+
+    ############## _H or not
+    label = str(i) + ' Deg_H'
+
     ax = sns.heatmap(df_avg, cmap=a, yticklabels=False, xticklabels=False, cbar = False)
     plt.text(5,20,label, color='#FFFFFF')
     #plt.show()
 
-    plt.savefig('.\Measurement_Data\\3D_heat\\Heat_figures\\'+label +'.png',dpi=2000)
+    plt.savefig('.\Measurement_Data\\3D_heat\\Heat_figures\\'+label +'.png',dpi=250)
+    plt.clf()
+    dflist=[]
 
 #df = pd.read_csv('.\Measurement_Data\\3D_heat\\-1 deg\Record_2022-11-29_10-32-11.csv',delimiter=';', skipinitialspace=True)
 #df = df.iloc[: , :-1]
