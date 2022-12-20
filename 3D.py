@@ -33,7 +33,25 @@ df_hyst = df.drop(np.arange(0,34))
 #datapoints in normal + stall (-3.0 - 19.5):
 df_ns = df.drop(np.arange(34,47))
 
-def plotter(x_axis, y_axis, unit_x, unit_y, dataset, x_lower, x_upper, x_step, y_lower, y_upper, y_step):
+def plotter(x_axis, y_axis, dataset):
+    labels = {
+        "CL":dict(label = r'$C_{L}$', unit = '-', lower = 0, upper = 1.5, step = 0.25),
+        "Alpha":dict(label = '\u03B1', unit = '\u00B0', lower = -4, upper = 20, step = 2.5),
+        "Cm_pitch":dict(label = r'$C_{m}$', unit = '-', lower = -0.1, upper = 0.04, step = 0.02),
+        "CD":dict(label = r'$C_{D}$', unit = '-', lower = 0, upper = 0.28, step = 0.04)
+    }
+    x_label = labels[x_axis]["label"]
+    x_unit = labels[x_axis]["unit"]
+    x_lower = labels[x_axis]["lower"]
+    x_upper = labels[x_axis]["upper"]
+    x_step = labels[x_axis]["step"]
+
+    y_label = labels[y_axis]["label"]
+    y_unit = labels[y_axis]["unit"]
+    y_lower = labels[y_axis]["lower"]
+    y_upper = labels[y_axis]["upper"]
+    y_step = labels[y_axis]["step"]
+
     if dataset == 1:
         df_1 = df[[x_axis, y_axis]]
     if dataset == 2:
@@ -44,12 +62,14 @@ def plotter(x_axis, y_axis, unit_x, unit_y, dataset, x_lower, x_upper, x_step, y
         df_1 = df_ns[[x_axis, y_axis]]
     plt.plot(df_1[x_axis], df_1[y_axis], color='grey',linewidth='1')
     f=sns.scatterplot(data=df_1, x=df_1[x_axis], y=df_1[y_axis], marker ='X', color='seagreen')
-    f.set(xlabel= x_axis + ' [' + unit_x + ']', ylabel= y_axis + ' [' + unit_y + ']')
+    f.set(xlabel= x_label + ' [' + x_unit + ']', ylabel= y_label + ' [' + y_unit + ']')
     plt.yticks(np.arange(y_lower,y_upper,y_step))
     plt.xticks(np.arange(x_lower,x_upper,x_step))
+    #plt.savefig('.\Measurement_Data\\3D\\Polars\\' +y_label + x_label +'.svg',dpi=1200)
+    #plt.clf()
     plt.show()
 
-plotter('Alpha', 'Cm_pitch', '\u00B0', '-', 4, -3.5, 20, 2.5, -0.1, 0.05, 0.02)
+plotter('Cm_pitch', 'Alpha', 4)
 
 # Alpha: \u03B1
 # Degree: \u00B0
