@@ -11,7 +11,7 @@ f = sns.relplot(data=df, x='alpha', y='CL', markers='o')
 data = pd.DataFrame(df)
 data_vector = data[['alpha', 'CL']]
 plt.plot(data_vector['alpha'], data_vector['CL'], color='grey', linewidth='1')
-f.set(xlabel='alpha [degrees]', ylabel='CL [-]')
+f.set(xlabel='\u03B1 [\u00B0]', ylabel='CL [-]')
 print(df)
 plt.savefig('.\CFD\\3D\graphs\\' +str(['VLM_CL-alpha'])+'.svg',dpi=1200)
 plt.show()
