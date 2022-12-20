@@ -35,7 +35,7 @@ df_ns = df.drop(np.arange(34,47))
 
 def plotter(x_axis, y_axis, dataset):
     labels = {
-        "CL":dict(label = r'$C_{L}$', unit = '-', lower = 0, upper = 1.5, step = 0.25),
+        "CL":dict(label = r'$C_{L}$', unit = '-', lower = 0, upper = 1.25, step = 0.25),
         "Alpha":dict(label = '\u03B1', unit = '\u00B0', lower = -4, upper = 20, step = 2.5),
         "Cm_pitch":dict(label = r'$C_{m}$', unit = '-', lower = -0.1, upper = 0.04, step = 0.02),
         "CD":dict(label = r'$C_{D}$', unit = '-', lower = 0, upper = 0.28, step = 0.04)
@@ -65,11 +65,11 @@ def plotter(x_axis, y_axis, dataset):
     f.set(xlabel= x_label + ' [' + x_unit + ']', ylabel= y_label + ' [' + y_unit + ']')
     plt.yticks(np.arange(y_lower,y_upper,y_step))
     plt.xticks(np.arange(x_lower,x_upper,x_step))
-    #plt.savefig('.\Measurement_Data\\3D\\Polars\\' +y_label + x_label +'.svg',dpi=1200)
-    #plt.clf()
-    plt.show()
+    plt.savefig('.\Measurement_Data\\3D\\Polars\\' +y_label + x_label + str(dataset) + '.svg',dpi=1200)
+    plt.clf()
+    #plt.show()
 
-plotter('Cm_pitch', 'Alpha', 4)
+plotter('CD', 'CL', 4)
 
 # Alpha: \u03B1
 # Degree: \u00B0
