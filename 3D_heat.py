@@ -8,7 +8,7 @@ import glob
 
 dflist = []
 
-for i in np.arange(-3, 20, 1):
+for i in np.arange(13.5, 16.5, 1):
     i = str(i)
     files = glob.glob('.\Measurement_Data\\3D_heat\\'+i+' deg\Record*')
 
@@ -40,6 +40,8 @@ for i in np.arange(-3, 20, 1):
     #plt.show()
 
     plt.savefig('.\Measurement_Data\\3D_heat\\Heat_figures\\'+label +'.png',dpi=2000)
+    plt.clf()
+    dflist=[]
 
 #df = pd.read_csv('.\Measurement_Data\\3D_heat\\-1 deg\Record_2022-11-29_10-32-11.csv',delimiter=';', skipinitialspace=True)
 #df = df.iloc[: , :-1]
