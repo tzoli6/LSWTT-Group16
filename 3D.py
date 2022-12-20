@@ -33,7 +33,7 @@ df_hyst = df.drop(np.arange(0,34))
 #datapoints in normal + stall (-3.0 - 19.5):
 df_ns = df.drop(np.arange(34,47))
 
-def plotter(x_axis, y_axis, unit_x, unit_y, dataset):
+def plotter(x_axis, y_axis, unit_x, unit_y, dataset, x_lower, x_upper, x_step, y_lower, y_upper, y_step):
     if dataset == 1:
         df_1 = df[[x_axis, y_axis]]
     if dataset == 2:
@@ -45,9 +45,14 @@ def plotter(x_axis, y_axis, unit_x, unit_y, dataset):
     plt.plot(df_1[x_axis], df_1[y_axis], color='grey',linewidth='1')
     f=sns.scatterplot(data=df_1, x=df_1[x_axis], y=df_1[y_axis], marker ='X', color='seagreen')
     f.set(xlabel= x_axis + ' [' + unit_x + ']', ylabel= y_axis + ' [' + unit_y + ']')
+    plt.yticks(np.arange(y_lower,y_upper,y_step))
+    plt.xticks(np.arange(x_lower,x_upper,x_step))
     plt.show()
 
-plotter('CL', 'CD', '-', '-', 1)
+plotter('Alpha', 'Cm_pitch', '\u00B0', '-', 4, -3.5, 20, 2.5, -0.1, 0.05, 0.02)
+
+# Alpha: \u03B1
+# Degree: \u00B0
 
 # ###CL-Alpha###
 # df_1 = df[['Alpha','CL']]
