@@ -103,18 +103,16 @@ def save_comperison_plots():
     plt.clf()
 
 def save_CFD_Cp_plots():
-    df = pd.read_csv('.\\CFD\\2D\\Cp\\3.txt', delimiter=' ', skipinitialspace=True)
+    df = pd.read_csv('.\\CFD\\2D\\Cp\\17.5.txt', delimiter=' ', skipinitialspace=True)
     print(df)
     df = df.astype(float)
     df = df[df.index % 3 ==0]
-    f=sns.relplot(df, x='x', y='Cpi', kind='scatter', aspect=16/11)
-    f=sns.scatterplot(df, x='x', y='Cpi', markers='x', color='seagreen')
-    plt.plot(df.loc[:,'x'], df.loc[:,'Cpi'], color = 'grey', linewidth=1)
+    f=sns.relplot(df, x='x', y='Cpv', kind='scatter', aspect=16/11)
+    f=sns.scatterplot(df, x='x', y='Cpv', markers='x', color='seagreen')
+    plt.plot(df.loc[:,'x'], df.loc[:,'Cpv'], color = 'grey', linewidth=1)
     f.set(xlabel='x/c [-]', ylabel='Cp [-]')
     f.invert_yaxis()
-    plt.yticks(np.arange(-1.2,1.25,0.25))
-    plt.xticks(np.arange(0,1.2,0.1))
-    plt.savefig('.\CFD\\2D\Graphs\Cp_3.svg',dpi=1200)
+    plt.savefig('.\CFD\\2D\Graphs\Cp_17.5.svg',dpi=1200)
     plt.clf()
 
 def main():
