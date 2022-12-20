@@ -39,7 +39,7 @@ for i in range(-3,-2):
     plt.text(5,20,label, color='#FFFFFF')
     plt.show()
 
-#plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',dpi=1200)
+    plt.savefig('.\Measurement_Data\\3D_heat\\Heat_figures\\'+label +'.svg',dpi=1200)
 
 #df = pd.read_csv('.\Measurement_Data\\3D_heat\\-1 deg\Record_2022-11-29_10-32-11.csv',delimiter=';', skipinitialspace=True)
 #df = df.iloc[: , :-1]
