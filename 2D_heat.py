@@ -8,7 +8,7 @@ import glob
 
 dflist = []
 
-for i in range(-3,19):
+for i in range(-3,-2):
     i = str(i)
     files = glob.glob('.\Measurement_Data\\2D_heat\\'+i+' deg\Record*')
 
@@ -31,10 +31,11 @@ for i in range(-3,19):
     ma = df_avg.values.max()
     mi = df_avg.values.min()
     df_avg = df_avg.apply(lambda x: (x-mi)/(ma-mi))
-    df_avg = df_avg.apply(lambda x: np.tanh(5*(x-0.73)))
+    df_avg = df_avg.apply(lambda x: np.tanh(3.5*(x-0.73)))
     a = sns.set_palette(sns.color_palette(['#000000','#ffffff'], as_cmap=True))
     a = sns.color_palette('Greys_r', 1000)
     label = str(i) + ' Deg'
     ax = sns.heatmap(df_avg, cmap=a, yticklabels=False, xticklabels=False, cbar = False)
     plt.text(5,20,label, color='#FFFFFF')
-    plt.savefig('.\Measurement_Data\\2D_heat\Heat_figures\\'+str(df[i]['Alpha'])+'.svg',dpi=1200)
+    #plt.savefig('.\Measurement_Data\\2D_heat\Heat_figures\\'+str(df[i]['Alpha'])+'.svg',dpi=1200)
+    plt.show()
