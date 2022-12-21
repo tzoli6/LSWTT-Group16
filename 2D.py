@@ -28,22 +28,24 @@ df_ns = df.drop(np.arange(33,43))
 
 def plotter(x_axis, y_axis, dataset):
     labels = {
-        "CL":dict(label = r'$C_{L}$', unit = '-', lower = 0, upper = 1.25, step = 0.25),
-        "alpha":dict(label = '\u03B1', unit = '\u00B0', lower = -4, upper = 20, step = 2.5),
-        "Cm":dict(label = r'$C_{m}$', unit = '-', lower = -0.1, upper = 0.04, step = 0.02),
-        "CD":dict(label = r'$C_{D}$', unit = '-', lower = 0, upper = 0.28, step = 0.04)
+        "CL":dict(label = r'$C_{l}$', unit = '-', lower = 0, upper = 1.25, step = 0.25, name = 'Cl'),
+        "alpha":dict(label = '\u03B1', unit = '\u00B0', lower = -4, upper = 20, step = 2.5, name = 'alpha'),
+        "Cm":dict(label = r'$C_{m}$', unit = '-', lower = -0.1, upper = 0.04, step = 0.02, name = 'Cm'),
+        "CD":dict(label = r'$C_{d}$', unit = '-', lower = 0, upper = 0.28, step = 0.04, name = 'Cd')
     }
     x_label = labels[x_axis]["label"]
     x_unit = labels[x_axis]["unit"]
     x_lower = labels[x_axis]["lower"]
     x_upper = labels[x_axis]["upper"]
     x_step = labels[x_axis]["step"]
+    x_name = labels[x_axis]["name"]
 
     y_label = labels[y_axis]["label"]
     y_unit = labels[y_axis]["unit"]
     y_lower = labels[y_axis]["lower"]
     y_upper = labels[y_axis]["upper"]
     y_step = labels[y_axis]["step"]
+    y_name = labels[y_axis]["name"]
 
     if dataset == 1:
         df_1 = df[[x_axis, y_axis]]
@@ -58,8 +60,8 @@ def plotter(x_axis, y_axis, dataset):
     f.set(xlabel= x_label + ' [' + x_unit + ']', ylabel= y_label + ' [' + y_unit + ']')
     plt.yticks(np.arange(y_lower,y_upper,y_step))
     plt.xticks(np.arange(x_lower,x_upper,x_step))
-    plt.savefig('.\Measurement_Data\\twoD\\Polars\\' +y_label + x_label + str(dataset) + '.svg',dpi=1200)
+    plt.savefig('.\Measurement_Data\\twoD\\Polars\\' + x_name + y_name + str(dataset) + '.svg',dpi=1200)
     plt.clf()
     #plt.show()
 
-plotter('alpha', 'Cm', 4)
+plotter('alpha', 'Cm', 1)
