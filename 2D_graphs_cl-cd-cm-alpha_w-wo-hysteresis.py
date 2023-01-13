@@ -18,8 +18,8 @@ plt.plot(df['alpha'], df['Cm'], linewidth='1', label = r'$C_m$', color='grey')
 plt.legend
 f=sns.scatterplot(data=df, x=df['alpha'], y=df['CL'], marker ='X', color='red')
 f=sns.scatterplot(data=df, x=df['alpha'], y=df['Cm'], marker ='s', color='seagreen')
-f.set(xlabel='Alpha [degrees]', ylabel='Cl/Cm [-]')
-plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(['ClCm-Alpha'])+'.svg',dpi=1200)
+f.set(xlabel=r'$\alpha$ [$^\circ$]', ylabel=r'$C_l/C_m$ [-]')
+plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str('ClCm-Alpha')+'.svg',dpi=1200)
     #plt.savefig('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',format='svg', dpi=1200)
 plt.clf()
 
@@ -28,8 +28,8 @@ plt.plot(da['alpha'], da['Cm'], linewidth='1',label = r'$C_m$', color='grey')
 plt.legend
 q=sns.scatterplot(data=da, x=da['alpha'], y=da['CL'], marker ='X', color='red')
 f=sns.scatterplot(data=da, x=da['alpha'], y=da['Cm'], marker ='s', color='seagreen')
-q.set(xlabel='Alpha [degrees]', ylabel='Cl/Cm [-]')
-plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str(['ClCm-Alpha_nohysteresis'])+'.svg',dpi=1200)
+q.set(xlabel=r'$\alpha$ [$^\circ$]', ylabel=r'$C_l/C_m$ [-]')
+plt.savefig('.\Measurement_Data\\twoD\Graphs\\'+str('ClCm-Alpha_nohysteresis')+'.svg',dpi=1200)
     #plt.savefig('G:\My Drive\TU Delft\LowSpeedWindTunnelTest\LSWTT-Group16\Measurement_Data\\twoD\Graphs\\'+str(df[i]['Alpha'])+'.svg',format='svg', dpi=1200)
 plt.clf()
 
